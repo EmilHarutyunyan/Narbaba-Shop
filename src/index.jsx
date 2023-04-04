@@ -9,6 +9,10 @@ import { BrowserRouter } from 'react-router-dom';
 import "./themes/css/main.css"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+ // import Swiper and modules styles
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
 // import setupInterceptors from "./services/setupInterceptors";
 
 const container = document.getElementById('root');

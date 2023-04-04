@@ -1,7 +1,6 @@
 import styled from "styled-components";
 export const Wrapper = styled.section`
   .home-prev {
-    /* background: url(../images/carousel-prev.png) no-repeat center !important; */
     top: 50%;
     position: absolute;
     left: 4%;

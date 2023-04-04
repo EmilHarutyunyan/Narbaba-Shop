@@ -1,6 +1,6 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 // Styles
 import { Wrapper } from "./Header.styles";
 // Img
@@ -11,7 +11,7 @@ import germanLn from "../../assets/images/german.png";
 import cartIcon from "../../assets/images/cart-icon.png";
 import profileIcon from "../../assets/images/profile-icon.png";
 import favoriteIcon from "../../assets/images/favorite-icon.png";
-import { categorySearch } from "./dataLinks";
+import { categorySearch, navLinks } from "./dataLinks";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../app/features/user/userSlice";
 const Header = () => {
@@ -19,7 +19,7 @@ const Header = () => {
   
   return (
     <Wrapper>
-      <div>
+      
         <header>
           <div className="page-container header-container">
             <div className="main-header">
@@ -52,7 +52,7 @@ const Header = () => {
                           <Dropdown.Item
                             className="dropdown-item"
                             key={item.id}
-                            href={item.link}
+                            to={item.link}
                           >
                             {item.text}
                           </Dropdown.Item>
@@ -141,10 +141,10 @@ const Header = () => {
                           className="dropdown-menu"
                           aria-labelledby="languageDropdown"
                         >
-                          <Dropdown.Item className="dropdown-item" href="#">
+                          <Dropdown.Item className="dropdown-item" to="#">
                             <img src={turkishLn} alt="turkish" />
                           </Dropdown.Item>
-                          <Dropdown.Item className="dropdown-item" href="#">
+                          <Dropdown.Item className="dropdown-item" to="#">
                             <img src={germanLn} alt="german" />
                           </Dropdown.Item>
                         </Dropdown.Menu>
@@ -163,10 +163,10 @@ const Header = () => {
                           className="dropdown-menu"
                           aria-labelledby="languageDropdown"
                         >
-                          <Dropdown.Item className="dropdown-item" href="#">
+                          <Dropdown.Item className="dropdown-item" to="#">
                             ₺ - TL
                           </Dropdown.Item>
-                          <Dropdown.Item className="dropdown-item" href="#">
+                          <Dropdown.Item className="dropdown-item" to="#">
                             € - EUR
                           </Dropdown.Item>
                         </Dropdown.Menu>
@@ -181,37 +181,21 @@ const Header = () => {
         <section className="second-header">
           <div className="page-container">
             <div className="second-header-list">
-              <Link to={""} className="second-header-item">
-                Best Sellers
-              </Link>
-              <Link to={""} className="second-header-item">
-                Deals Store
-              </Link>
-              <Link to={""} className="second-header-item">
-                New Releases
-              </Link>
-              <Link to={""} className="second-header-item">
-                Customer Service
-              </Link>
-              <Link to={""} className="second-header-item">
-                Electronics
-              </Link>
-              <Link to={""} className="second-header-item">
-                Gift Ideas
-              </Link>
-              <Link to={""} className="second-header-item active">
-                Home
-              </Link>
-              <Link to={""} className="second-header-item">
-                Sell
-              </Link>
-              <Link to={""} className="second-header-item">
-                Toys &amp; Games
-              </Link>
+              {navLinks.map((item) => {
+                return (
+                  <NavLink
+                    className="second-header-item"
+                    key={item.id}
+                    to={item.link}
+                  >
+                    {item.text}
+                  </NavLink>
+                );
+              })}
+              
             </div>
           </div>
         </section>
-      </div>
     </Wrapper>
   );
 };

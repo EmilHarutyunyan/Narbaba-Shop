@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-export const categorySearch = [
+export const shopList = [
   {
     id: uuidv4(),
     link: "/best-sellers",
@@ -10,11 +10,6 @@ export const categorySearch = [
     id: uuidv4(),
     link: "/deals-store",
     text: "Deals Store",
-  },
-  {
-    id: uuidv4(),
-    link: "/customer-service",
-    text: "Customer Service",
   },
   {
     id: uuidv4(),
@@ -38,50 +33,53 @@ export const categorySearch = [
   },
 ];
 
-export const navLinks = [
+export const companyList = [
   {
     id: uuidv4(),
-    link: "/best-sellers",
-    text: "Best Sellers",
+    link: "/press",
+    text: "Press",
   },
   {
     id: uuidv4(),
-    link: "/deals-store",
-    text: "Deals Store",
+    link: "/contact-us",
+    text: "Contact us",
+  },
+]
+
+export const quickList = [
+  {
+    id: uuidv4(),
+    link: "/press",
+    text: "Press",
   },
   {
     id: uuidv4(),
-    link: "/new-releases",
-    text: "New Releases",
+    link: "/contact-us",
+    text: "Contact us",
   },
   {
     id: uuidv4(),
-    link: "/customer-service",
-    text: "Customer Service",
+    link: "/privacy",
+    text: "Privacy",
   },
   {
     id: uuidv4(),
-    link: "/electronics",
-    text: "Electronics",
+    link: "/terms-of-use",
+    text: "Terms of Use",
   },
   {
     id: uuidv4(),
-    link: "/gift-ideas",
-    text: "Gift Ideas",
+    link: "/cookies",
+    text: "Cookies",
   },
   {
     id: uuidv4(),
-    link: "/",
-    text: "Home",
+    link: "/refund-policy",
+    text: "Refund Policy",
   },
   {
     id: uuidv4(),
-    link: "/sell",
-    text: "Sell",
-  },
-  {
-    id: uuidv4(),
-    link: "/toys-games",
-    text: "Toys & Games",
+    link: "/faq",
+    text: "Faq",
   },
 ];
