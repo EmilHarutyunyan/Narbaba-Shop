@@ -1,0 +1,623 @@
+.userProfile-section {
+    padding: 48px 0 128px 0;
+}
+
+.userProfile-section .content {
+    display: flex;
+    gap: 32px;
+}
+
+.userProfile-section .content .side-navbar {
+    width: 100%;
+    max-width: 382px;
+}
+
+.userProfile-section .content .side-navbar .side-navbar-list {
+    display: grid;
+    gap: 24px;
+    padding: 0;
+    list-style: none;
+}
+
+/*.userProfile-section .content .side-navbar .side-navbar-list .side-navbar-item {*/
+/*    padding: 16px 42px;*/
+/*    border: 1px solid #FDE3EA;*/
+/*}*/
+
+.userProfile-section .content .side-navbar .side-navbar-list .side-navbar-item {
+    width: 100%;
+    padding: 16px 42px;
+    border: 1px solid #FDE3EA;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 18px;
+    line-height: 27px;
+    color: #232323;
+}
+
+.userProfile-section .content .side-navbar .side-navbar-list .side-navbar-item.active {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.05);
+    border: none;
+}
+
+.userProfile-section .content .side-navbar .side-navbar-list .side-navbar-item img {
+    max-width: 48px;
+    max-height: 48px;
+}
+
+.userProfile-section .content .side-navbar .side-navbar-list button.side-navbar-item  {
+    background-color: transparent;
+}
+.userProfile-section .content .right-side {
+    width: 100%;
+}
+
+.userProfile-section .content .right-side .title {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 42px;
+    color: #232323;
+    padding-bottom: 12px;
+    margin: 0;
+}
+
+.userProfile-section .content .right-side .title.payment-methods-title a {
+    margin-right: 31px;
+}
+
+.userProfile-section .content .right-side .orders-number {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.userProfile-section .content .right-side table {
+    width: 100%;
+    padding: 0;
+    border: 1px solid #FDE3EA;
+    border-radius: 4px;
+    border-collapse: collapse;
+    margin-top: 24px;
+}
+
+.userProfile-section .content .right-side .orders-header {
+    background: #FDE3EA;
+    border-radius: 4px 4px 0px 0px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #232323;
+    padding: 9px 22px;
+}
+
+.userProfile-section .content .right-side table tr {
+    border-bottom: 1px solid #FDE3EA;
+    padding: 16px 22px;
+}
+
+.userProfile-section .content .right-side .orders-header th:nth-child(1) {
+    padding: 9px 0 9px 22px;
+}
+
+.userProfile-section .content .right-side .order-picture {
+    width: 100px;
+}
+
+.userProfile-section .content .right-side .order-picture img {
+    height: 82px;
+    width: 100px;
+    margin: 16px -15px 16px 22px;
+}
+
+.userProfile-section .content .right-side .product-name {
+    width: 135px;
+}
+
+
+.userProfile-section .content .right-side .product-name span {
+    margin-right: 25px;
+    width: 135px;
+    display: block;
+}
+
+.userProfile-section .content .right-side .order-ID {
+    width: 81px;
+}
+
+.userProfile-section .content .right-side .order-ID span {
+    width: 81px;
+    display: block;
+    margin-right: 35px;
+}
+
+.userProfile-section .content .right-side .status {
+    width: 71px;
+}
+
+.userProfile-section .content .right-side .status span {
+    width: 71px;
+    display: block;
+    margin-right: 30px;
+}
+
+.userProfile-section .content .right-side .status.cancelled span {
+    color: #8A0046;
+}
+
+.userProfile-section .content .right-side .order-date {
+    width: 91px;
+}
+
+.userProfile-section .content .right-side .order-date span {
+    width: 91px;
+    display: block;
+    margin-right: 25px;
+}
+
+.userProfile-section .content .right-side .qty {
+    width: 25px;
+}
+
+.userProfile-section .content .right-side .qty span {
+    width: 57px;
+    display: block;
+    /*margin-right: 79px;*/
+}
+
+.userProfile-section .content .right-side .total {
+    width: 50px;
+}
+
+.userProfile-section .content .right-side .total span {
+    width: 50px;
+    display: block;
+    margin-right: 40px;
+}
+
+.userProfile-section .content .right-side .buttons {
+    width: 115px;
+}
+
+
+.userProfile-section .content .right-side .buttons .btn {
+    display: grid;
+    gap: 12px;
+}
+
+.userProfile-section .content .right-side .buttons button {
+    width: 100%;
+    max-width: 115px;
+    height: 28px;
+    margin-right: 16px;
+    font-size: 14px;
+}
+
+.userProfile-section .content .right-side .buttons .rate-product, .userProfile-section .content .right-side .buttons .buy-again:hover,
+.cancel-order .modal-body .cancel-order-btn:hover, .cancel-order .modal-body .submit-btn:hover,
+.userProfile-section .content .right-side .account-form .account-buttons .saveChanges-btn:hover,
+.userProfile-section .content .right-side .add-payment-method:hover,
+.userProfile-section .content .right-side .payment-methods-form .payment-methods-buttons .save-btn:hover,
+.userProfile-section .content .right-side .add-address:hover,
+.userProfile-section .content .right-side form .payment-methods-buttons .change-password:hover {
+    color: #D70B52;
+    border: 1px solid #D70B52;
+    background: transparent;
+}
+
+.userProfile-section .content .right-side .buttons .buy-again, .userProfile-section .content .right-side .buttons .rate-product:hover,
+.userProfile-section .content .right-side .account-form .account-buttons .discard-btn:hover,
+.userProfile-section .content .right-side .payment-methods-form .payment-methods-buttons .discard-btn:hover,
+.userProfile-section .content .right-side form .payment-methods-buttons .discard-btn:hover {
+    background: #D70B52;
+    color: #FFFFFF;
+}
+
+.cancel-order .modal-body {
+    text-align: center;
+}
+
+.cancel-order .modal-body .cancel-order-title {
+    font-size: 24px;
+    line-height: 36px;
+    padding-bottom: 8px;
+}
+
+.cancel-order .modal-body span {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.cancel-order .modal-body .cancel-order-btn {
+    width: 100%;
+    max-width: 139px;
+    height: 48px;
+    background: #D70B52;
+    color: #FFFFFF;
+    margin-top: 24px;
+}
+
+.cancel-order .modal-body .rate-stars {
+    margin: 24px 0;
+}
+
+.cancel-order .modal-body .review {
+    width: 100%;
+    height: 120px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #A1A1A1;
+    border: 1px solid #F0F0F0;
+    padding: 12px 16px;
+    resize: none;
+}
+
+.cancel-order .modal-body .review:focus-visible {
+    outline: none;
+}
+
+.cancel-order .modal-body .attach-image {
+    width: 100%;
+    height: 75px;
+    padding: 24px;
+    border: 1px dashed #F9B9CB;
+    margin-top: 16px;
+    cursor: pointer;
+}
+
+.cancel-order .modal-body .attach-image input {
+    display: none;
+}
+
+.cancel-order .modal-body .attach-image .attach-image-label span {
+    display: flex;
+    gap: 18px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #D70B52;
+    cursor: pointer;
+}
+
+.cancel-order .modal-body .attached-image {
+    display: none;
+}
+
+.cancel-order .modal-body .attached-image.added {
+    display: flex;
+    gap: 15px;
+    margin: 24px auto 24px 0;
+    height: auto;
+    width: 90px;
+}
+
+.cancel-order .modal-body .attached-image.added #xImage {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.cancel-order .modal-body .attached-image.added #attached-image {
+    width: 100%;
+    height:  100%;
+    object-fit: contain;
+    max-width: 70px;
+    max-height: 70px;
+}
+
+.cancel-order .modal-body .submit-btn {
+    width: 100%;
+    max-width: 161px;
+    height: 48px;
+    background: #D70B52;
+    color: #FFFFFF;
+}
+
+.userProfile-section .content .right-side .account-form,
+.userProfile-section .content .right-side .payment-methods-form,
+.userProfile-section .content .right-side form {
+    width: 100%;
+    max-width: 520px;
+    display: grid;
+    gap: 32px;
+    padding-top: 12px;
+}
+
+.userProfile-section .content .right-side .account-form div>input,
+.userProfile-section .content .right-side .payment-methods-form div>input,
+.userProfile-section .content .right-side form div>input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #F0F0F0;
+    font-size: 16px;
+    line-height: 24px;
+    color: #232323;
+    padding: 12px 16px;
+}
+
+.userProfile-section .content .right-side .account-form .input::placeholder,
+.userProfile-section .content .right-side .payment-methods-form .input::placeholder,
+.userProfile-section .content .right-side form .input::placeholder {
+    color: #A1A1A1;
+}
+
+.userProfile-section .content .right-side .account-form .email input {
+    background: #E2E2E2;
+}
+
+.userProfile-section .content .right-side .account-form .account-buttons,
+.userProfile-section .content .right-side .payment-methods-form .payment-methods-buttons,
+.userProfile-section .content .right-side form .payment-methods-buttons {
+    display: flex;
+    gap: 32px;
+    justify-content: flex-end;
+}
+
+.userProfile-section .content .right-side .account-form .account-buttons .discard-btn,
+.userProfile-section .content .right-side .payment-methods-form .payment-methods-buttons .discard-btn,
+.userProfile-section .content .right-side form .payment-methods-buttons .discard-btn {
+    width: 103px;
+    height: 48px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #D70B52;
+    border: 1px solid #D70B52;
+    background: transparent;
+}
+
+.userProfile-section .content .right-side .account-form .account-buttons .saveChanges-btn {
+    width: 147px;
+    height: 48px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    background: #D70B52;
+}
+
+.userProfile-section .content .right-side .payment-methods-form .payment-methods-buttons .save-btn {
+    width: 83px;
+    height: 48px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    background: #D70B52;
+}
+
+
+.userProfile-section .content .right-side form .payment-methods-buttons .change-password {
+    width: 176px;
+    height: 48px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    background: #D70B52;
+}
+
+
+.userProfile-section .content .right-side .add-payment-method {
+    width: 235px;
+    height: 48px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    background: #D70B52;
+}
+
+.userProfile-section .content .right-side .card {
+    width: 100%;
+    max-width: 520px;
+    height: 78px;
+    padding: 24px 16px;
+    margin-top: 48px;
+}
+
+.userProfile-section .content .right-side .card.added {
+    display: flex;
+    height: 118px;
+    justify-content: space-between;
+}
+
+.userProfile-section .content .right-side .card .card-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 31px;
+}
+
+.userProfile-section .content .right-side .card .card-type {
+    width: 100%;
+    max-width: 51px;
+    height: 100%;
+}
+
+.userProfile-section .content .right-side .card .card-type img {
+    width: 100%;
+    height: 100%;
+}
+
+.userProfile-section .content .right-side .card .card-num,
+.userProfile-section .content .right-side .card .choose-card .payment-method-label {
+    width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+    color: #232323;
+}
+
+.userProfile-section .content .right-side .card .delete-card {
+    width: 24px;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.userProfile-section .content .right-side .choose-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.userProfile-section .content .right-side .choose-card input[type='radio'] {
+    accent-color: #D70B52;
+    border: 2px solid #BFBFBF;
+    width: 20px;
+    height: 19px;
+}
+
+.userProfile-section .content .right-side .choose-card input[type='radio']:checked:after {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: transparent;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #D70B52;
+}
+
+.userProfile-section.addresses .content .right-side .choose-card input[type='radio']:checked:after {
+    width: 20px;
+    height: 19px;
+}
+
+.userProfile-section.payment-history .content .right-side .order-date {
+    width: 28%;
+    padding: 24px;
+}
+
+.userProfile-section.payment-history .content .right-side .order-ID,
+.userProfile-section.payment-history .content .right-side .status {
+    width: 22%;
+    text-align: center;
+}
+
+.userProfile-section.payment-history .content .right-side .total {
+    width: 7%;
+}
+
+.userProfile-section .content .right-side .add-address {
+    width: 138px;
+    height: 48px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    background: #D70B52;
+    margin-top: 4px;
+}
+
+.userProfile-section.addresses .content .right-side select {
+    width: 100%;
+    max-width: 100%;
+    height: 48px;
+    color: #232323;
+    /* background: url("../images/Down_Arrow.png") no-repeat; */
+    background-position: calc(100% - 1.15rem) center !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    border: 1px solid #F0F0F0;
+    font-size: 16px;
+    line-height: 24px;
+    color: #232323;
+    padding: 12px 16px;
+}
+
+.userProfile-section.addresses .content .right-side .addresses-list {
+    display: grid;
+    gap: 32px;
+    padding-top: 48px;
+}
+
+.userProfile-section.addresses .content .right-side .addresses-list .address-item {
+    max-width: 520px;
+    width: 100%;
+    height: 376px;
+    border: 1px solid #FDE3EA;
+    padding: 16px 24px;
+}
+
+.userProfile-section.addresses .content .right-side .addresses-list .address-item  .item-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userProfile-section.addresses .content .right-side .addresses-list .address-item  .item-heading .buttons {
+    display: flex;
+    gap: 20px;
+    width: 15%;
+}
+
+.userProfile-section.addresses .content .right-side .addresses-list .address-item  .item-heading .buttons img {
+    width: 100%;
+    height: 100%;
+    max-height: 22px;
+    max-width: 22px;
+    cursor: pointer;
+}
+
+.userProfile-section.addresses .content .right-side .addresses-list .address-item  .address-info {
+    display: grid;
+    gap: 16px;
+    padding-top: 16px;
+}
+
+#removeAddress .modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.notifications .right-side .notification-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notifications .right-side .notification-heading .mark-all-read {
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #D70B52;
+}
+
+.notifications .right-side .notifications-list {
+    width: 100%;
+}
+
+.notifications .right-side .notifications-list .notifications-item {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    border-bottom: 1px solid #FDE3EA;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.notifications .right-side .notifications-list .notifications-item.unread {
+    background: #FDF3F6;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.notifications .right-side .notifications-list .notifications-item .notification-description {
+    max-width: 796px;
+}
+
+.password form .password-input {
+    position: relative;
+}
+
+.password form .password-input .show-reset-password,
+.password form .password-input .show-repeat-password {
+    position: absolute;
+    right: 3%;
+    cursor: pointer;
+    top: 15%;
+}
+

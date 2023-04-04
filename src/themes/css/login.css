@@ -1,0 +1,191 @@
+.login-body {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.login-box {
+    position: absolute;
+    width: 100%;
+    max-width: 520px;
+    top: 15%;
+    right: 0;
+    bottom: 20%;
+    left: 0;
+    margin: auto;
+}
+
+.login-box .logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 42px;
+}
+
+.login-box .logo img {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 244px;
+}
+
+.login-box .login-form .title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-box .login-form .forgot-password-title {
+    margin-bottom: 12px;
+}
+
+.login-box .login-form .get-link {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #232323;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.login-box .login-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-box .login-form input {
+    width: 100%;
+    max-width: 520px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid #F0F0F0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #A1A1A1;
+    padding: 12px 16px;
+}
+
+.login-box .login-form form .email-input input {
+    margin-bottom: 32px;
+}
+
+.login-box .login-form .password-input {
+    position: relative;
+}
+
+.login-box .login-form .password-input .show-password, .login-box .login-form .password-input .show-reset-password,
+.login-box .login-form .password-input .show-repeat-password {
+    position: absolute;
+    right: 3%;
+    cursor: pointer;
+    top: 15%;
+}
+
+
+
+.login-box .login-form form .password-input input {
+    margin-bottom: 16px;
+}
+
+.login-box .login-form .forget-password {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #D70B52;
+    margin-bottom: 24px;
+}
+
+.login-box .login-form .signIn-btn {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    background: #D70B52;
+    padding: 12px 0;
+    text-align: center;
+    border: none;
+    margin-bottom: 16px;
+}
+
+.login-box .login-form .join-us {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #232323;
+}
+
+.login-box .login-form .join-us a {
+    color: #D70B52;
+    padding-left: 8px;
+}
+
+.login-box .sign-up-form input {
+    margin-bottom: 32px !important;
+}
+
+.login-box .sign-up-form input {
+    margin-bottom: 32px !important;
+}
+
+.login-box .sign-up-form #repeatPassword {
+    margin-bottom: 16px !important;
+}
+
+.login-box .sign-up-form .click-join {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #232323;
+    margin-bottom: 24px;
+}
+
+#login {
+    width: 100%;
+    height: 62px;
+    background: #FAFAFA;
+    bottom: 0;
+    position: absolute;
+}
+
+#login .login-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 21px 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #232323;
+}
+
+#login .login-footer .login-footer-menu {
+    display: flex;
+    gap: 32px;
+}
+
+#login .login-footer .login-footer-menu .menu-item {
+    color: #232323;
+}
+
+#login .login-footer .footer-payment-methods {
+    display: flex;
+    gap: 23px;
+}

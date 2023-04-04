@@ -1,0 +1,31 @@
+@import "style.css";
+
+/*login css*/
+@import "login.css";
+
+/*categories css*/
+@import "categories.css";
+
+/*single product css*/
+@import "single-product.css";
+
+/*cart css*/
+@import "cart.css";
+
+/*technical pages css*/
+@import "technical-pages.css";
+
+/*user profile css*/
+@import "user-profile.css";
+
+/*responsive css*/
+@import "responsive.css";
+
+/* slick slider */
+/* @import "plugins/slick-theme.css";
+@import "plugins/slick.css"; */
+
+
+/*owl carousel*/
+/* @import "plugins/owl.carousel.min.css";
+@import "plugins/owl.theme.default.min.css"; */

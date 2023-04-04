@@ -1,0 +1,1 @@
+export const API_ENDPOINT = "http://etestdev-001-site1.ctempurl.com/";
