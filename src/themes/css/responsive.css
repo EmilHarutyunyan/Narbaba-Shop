@@ -826,26 +826,26 @@
         width: 100%;
     }
 
-    .userProfile-section.addresses .content .right-side .addresses-list {
+    .userProfile-section .content .right-side.addresses .addresses-list {
         display: flex;
         flex-wrap: wrap;
     }
 
-    .userProfile-section.addresses .content .right-side .addresses-list .address-item {
+    .userProfile-section .content .right-side.addresses .addresses-list .address-item {
         max-width: 100%;
         height: 100%;
     }
 
-    .userProfile-section .content .right-side .choose-card label, .userProfile-section.addresses .content .right-side .addresses-list .address-item .address-info {
+    .userProfile-section .content .right-side .choose-card label, .userProfile-section.addresses .content .right-side.addresses .addresses-list .address-item .address-info {
         font-size: 12px;
     }
 
-    .userProfile-section.addresses .content .right-side .addresses-list .address-item .item-heading .buttons {
+    .userProfile-section .content .right-side.addresses .addresses-list .address-item .item-heading .buttons {
         gap: 5px;
         width: 10%;
     }
 
-    .userProfile-section.addresses .content .right-side .addresses-list .address-item .item-heading .buttons img {
+    .userProfile-section .content .right-side.addresses .addresses-list .address-item .item-heading .buttons img {
         max-height: 12px;
         max-width: 12px;
     }

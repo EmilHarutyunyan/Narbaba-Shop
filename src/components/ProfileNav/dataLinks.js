@@ -35,7 +35,7 @@ export const dataLinks = [
   },
   {
     id: uuidv4(),
-    link: "/profile/address",
+    link: "/profile/addresses",
     text: "Addresses",
     icon: mapsFlagIcon,
   },

@@ -19,9 +19,9 @@ const ProfileNav = () => {
     <>
       <div className="side-navbar">
         <div className="side-navbar-list">
-          {dataLinks.map(item => {
+          {dataLinks.map((item,idx) => {
             return (
-              <NavLink to={item.link} className="side-navbar-item">
+              <NavLink to={item.link} key={idx} className="side-navbar-item">
                 <img src={item.icon} alt="open box" />
                 <span>{item.text}</span>
               </NavLink>

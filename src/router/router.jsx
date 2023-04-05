@@ -1,61 +1,83 @@
-import React from 'react'
-import {Navigate, Route,Routes, useLocation} from "react-router-dom"
-import PrivateRouter from './PrivateRouter'
+import React from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import PrivateRouter from "./PrivateRouter";
+import TokenService from "../services/token.service";
 
-import Layout from '../layout/Layout'
+// Path
+import {
+  ERROR,
+  FORGOT_PASSWORD,
+  HOME,
+  LOGIN,
+  PROFILE,
+  PROFILE_ACCOUNT,
+  PROFILE_ADDRESSES,
+  PROFILE_MY_ORDERS,
+  PROFILE_NEW_ADDRESSES,
+  PROFILE_PASSWORD,
+  REGISTER,
+} from "./route-path";
+
 // Pages
-import Home from '../pages/Home'
-import Login from "../pages/Auth/SignIn"
-import Register from "../pages/Auth/SignUp";
+import {
+  Home,
+  Login,
+  Register,
+  ErrorPage,
+  ForgotPass,
+  ProfileAccount,
+  ProfilePassword,
+  ProfileMyOrders,
+  ProfileAddresses,
+  ProfileNewAddresses,
+} from "../pages";
 
-import TokenService from '../services/token.service'
-import ErrorPage from '../pages/ErrorPage/ErrorPage'
-import ForgotPass from '../pages/Auth/ForgotPass'
-import ProfileLayout from '../layout/ProfileLayout/ProfileLayout'
-import ProfileAccount from '../pages/ProfileAccount/ProfileAccount'
-import ProfilePassword from '../pages/ProfilePassword/ProfilePassword'
+// Layout
+import { Layout, ProfileLayout } from "../layout";
+
 
 const Router = () => {
-  const user = TokenService.getUser() || null
-  const location = useLocation()
- 
-  const pathName = location.state?.from || '/'
+  const user = TokenService.getUser() || null;
+  const location = useLocation();
+
+  const pathName = location.state?.from || "/";
 
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path={HOME} element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="about-us" element={<Navigate to="/about" replace />} />
         <Route
-          path="/profile"
+          path={PROFILE}
           element={
             <PrivateRouter>
               <ProfileLayout />
             </PrivateRouter>
           }
         >
-          <Route index path={"my-orders"} element={<>Profile</>} />
-          <Route path="account" element={<ProfileAccount />} />
-          <Route path="password" element={<ProfilePassword />} />
+          <Route index path={PROFILE_MY_ORDERS} element={<ProfileMyOrders />} />
+          <Route path={PROFILE_ACCOUNT} element={<ProfileAccount />} />
+          <Route path={PROFILE_PASSWORD} element={<ProfilePassword />} />
+          <Route path={PROFILE_ADDRESSES} element={<ProfileAddresses />} />
+          <Route path={PROFILE_ADDRESSES+'/:id'} element={<ProfileAddresses />} />
         </Route>
       </Route>
       {user ? (
-        <Route path="/login" element={<Navigate to={pathName} />} />
+        <Route path={LOGIN} element={<Navigate to={pathName} />} />
       ) : (
         <>
-          <Route path="/login" element={<Login />} />
-          <Route path="/forgot-password" element={<ForgotPass />} />
+          <Route path={LOGIN} element={<Login />} />
+          <Route path={FORGOT_PASSWORD} element={<ForgotPass />} />
         </>
       )}
 
       {user ? (
-        <Route path="/register" element={<Navigate to="/" />} />
+        <Route path={REGISTER} element={<Navigate to="/" />} />
       ) : (
-        <Route path="/register" element={<Register />} />
+        <Route path={REGISTER} element={<Register />} />
       )}
-      <Route path="*" element={<ErrorPage />} />
+      <Route path={ERROR} element={<ErrorPage />} />
     </Routes>
   );
-}
+};
 
-export default Router
+export default Router;
