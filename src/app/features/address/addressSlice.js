@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { addAddress, getAddress } from './addressActions';
+import { createSlice } from "@reduxjs/toolkit";
+import { addAddress, getAddresses, getOneAddress, removeAddress } from "./addressActions";
 
 const initialState = {
   loading: false,
   message: null,
-  addressesInfo:[],
+  addressesInfo: [],
+  addressesChange:{},
 };
 
 const addressSlice = createSlice({
@@ -14,6 +15,8 @@ const addressSlice = createSlice({
     resetAddressMessage: (state) => {
       state.error = null;
       state.message = null;
+      state.addressesInfo = []
+      state.addressesChange ={}
     },
   },
   extraReducers: {
@@ -28,15 +31,39 @@ const addressSlice = createSlice({
       state.loading = false;
       state.error = payload;
     },
-    [getAddress.pending]: (state) => {
+    [getAddresses.pending]: (state) => {
       state.loading = true;
     },
-    [getAddress.fulfilled]: (state, { payload }) => {
+    [getAddresses.fulfilled]: (state, { payload }) => {
       state.loading = false;
-      debugger
+
       state.addressesInfo = payload;
     },
-    [getAddress.rejected]: (state, { payload }) => {
+    [getAddresses.rejected]: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    },
+    [getOneAddress.pending]: (state) => {
+      state.loading = true;
+    },
+    [getOneAddress.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+
+      state.addressesChange = payload;
+    },
+    [getOneAddress.rejected]: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    },
+    [removeAddress.pending]: (state) => {
+      state.loading = true;
+    },
+    [removeAddress.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+
+      state.message = "Remove Address";
+    },
+    [removeAddress.rejected]: (state, { payload }) => {
       state.loading = false;
       state.error = payload;
     },

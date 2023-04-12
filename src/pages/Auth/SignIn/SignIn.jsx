@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -22,6 +22,9 @@ const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch()
   const navigate = useNavigate();
+  const location = useLocation();
+  const fromPage = location.state?.from?.pathname || "/";
+  
   const {
     register,
     handleSubmit,
@@ -50,11 +53,12 @@ const SignIn = () => {
   }, [user]);
   useEffect(() => {
     if (userInfo) {
-      navigate("/");
+      navigate(fromPage, { replace: true })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInfo]);
 
+  
   return (
     <div className="login-body">
       <div className="login-box">
@@ -121,7 +125,13 @@ const SignIn = () => {
               )}
             </button>
             <span className="join-us">
-              Don’t have an account yet? <Link to={"/register"}>Join Us</Link>
+              Don’t have an account yet?{" "}
+              {/* <Navigate state={{ from: location }}> */}
+                <span to={"/register"} onClick={() => {
+                  navigate("/register", { state: { from: location?.state?.from } });
+        
+                }}>Join Us</span>
+              {/* </Navigate> */}
             </span>
           </form>
         </div>

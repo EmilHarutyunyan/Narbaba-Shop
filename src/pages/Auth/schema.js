@@ -14,11 +14,11 @@ export const schema_signUp = yup.object().shape({
   password: yup
     .string()
     .required("No password provided.")
-    .min(8, "Password is too short - should be 8 chars minimum."),
-    // .matches(
-    //   /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-    //   "Minimum 8 characters, at least one letter and one number"
-    // ),
+    .min(8, "Password is too short - should be 8 chars minimum.")
+    .matches(
+      /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+      "Minimum 8 characters, at least one letter and one number"
+    ),
   repeatPwd: yup
     .string()
     .required("No password provided.")
@@ -33,7 +33,11 @@ export const schema_signIn = yup.object().shape({
   password: yup
     .string()
     .required("Required")
-    .min(8, "Password is too short - should be 8 chars minimum."),
+    .min(8, "Password is too short - should be 8 chars minimum.")
+    .matches(
+      /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+      "Minimum 8 characters, at least one letter and one number"
+    ),
 });
 
 export const schema_forgot = yup.object().shape({

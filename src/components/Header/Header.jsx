@@ -1,8 +1,6 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Link, NavLink } from "react-router-dom";
-// Styles
-import { Wrapper } from "./Header.styles";
 // Img
 import narLogo from "../../assets/images/narbaba-logo.png";
 import englishLn from "../../assets/images/english.png";
@@ -18,8 +16,7 @@ const Header = () => {
   const {userInfo} = useSelector(selectUser)
   
   return (
-    <Wrapper>
-      
+    <>
         <header>
           <div className="page-container header-container">
             <div className="main-header">
@@ -114,7 +111,7 @@ const Header = () => {
                       <li className="nav-item">
                         <Link
                           className="nav-link"
-                          to={userInfo ? "profile/my-orders" : "login"}
+                          to={"/profile/my-orders"}
                         >
                           <img src={profileIcon} alt="Profile" />
                           {userInfo?.fullName ? userInfo?.fullName : "Profile"}
@@ -196,7 +193,7 @@ const Header = () => {
             </div>
           </div>
         </section>
-    </Wrapper>
+    </>
   );
 };
 

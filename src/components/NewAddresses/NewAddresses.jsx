@@ -2,26 +2,33 @@ import React, { useEffect, useState } from "react";
 import {
   CountryDropdown,
   RegionDropdown,
-  CountryRegionData,
 } from "react-country-region-selector";
-// Styles
-import { Wrapper } from "./NewAddresses.styles";
+
 // Img
 import downArray from "../../assets/images/Down_Arrow.png";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema_address } from "./schema";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+
+import { ToastContainer } from "react-toastify";
+import {
+  resetAddressMessage,
+  selectAddress,
+} from "../../app/features/address/addressSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addAddress,
+  getOneAddress,
+} from "../../app/features/address/addressActions";
 
 // Img
 import backArrow from "../../assets/images/back-arrow.png";
-import { toast, ToastContainer } from "react-toastify";
-import { resetAddressMessage, selectAddress } from "../../app/features/address/addressSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { addAddress } from "../../app/features/address/addressActions";
+import { notify } from "../../utils/helper/helper";
 const NewAddresses = () => {
   const navigate = useNavigate();
-  const { error, message } = useSelector(selectAddress);
+  const { id } = useParams();
+  const { error, message, addressesChange } = useSelector(selectAddress);
   const dispatch = useDispatch();
   const [country, setCountry] = useState("");
   const [region, setRegion] = useState("");
@@ -34,29 +41,18 @@ const NewAddresses = () => {
     clearErrors,
     setValue,
   } = useForm({
-    resolver: yupResolver(schema_address),
+    defaultValues: schema_address.cast(),
+    resolver: yupResolver(schema_address, {
+      stripUnknown: true,
+      abortEarly: false,
+    }),
   });
-  
-  console.log('errors :', errors);
-   
-  const notify = (message) =>
-    toast.success(message, {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
 
   const onSubmit = async (data) => {
-    
-    console.log(data);
-    await dispatch(addAddress({address:data}));
-    setCountry("")
-    setRegion("")
+    dispatch(resetAddressMessage());
+    await dispatch(addAddress({ address: data }));
+    setCountry("");
+    setRegion("");
     reset();
   };
   useEffect(() => {
@@ -64,13 +60,36 @@ const NewAddresses = () => {
       notify(message);
     }
     return () => dispatch(resetAddressMessage());
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message]);
-  const handleInputChange = (name,val) => {
+
+  useEffect(() => {
+    if (id !== undefined && id !== "1") {
+      dispatch(getOneAddress({ id }));
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+  const handleInputChange = (name, val) => {
     setValue(name, val, { shouldDirty: true });
     clearErrors(name);
   };
+  useEffect(() => {
+    if (addressesChange?.Country && country === "") {
+      setCountry(addressesChange?.Country);
+      let defaultValues = {};
+      defaultValues.country = addressesChange?.Country;
+      defaultValues.state = addressesChange?.State;
+      defaultValues.city = addressesChange?.City;
+      defaultValues.address = addressesChange?.Address;
+      defaultValues.address2 = addressesChange?.Address2;
+      defaultValues.phone = addressesChange?.Phone;
+      defaultValues.zip = addressesChange?.Zip;
+      defaultValues.email = addressesChange?.Email;
+      reset({ ...defaultValues });
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [addressesChange]);
   return (
     <div className="right-side addresses">
       <ToastContainer
@@ -91,6 +110,7 @@ const NewAddresses = () => {
         </button>
         Add a new address
       </h1>
+      {error && <span className="text-danger">{error}</span>}
       <form className="payment-methods-form" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input
@@ -142,13 +162,25 @@ const NewAddresses = () => {
         </div>
 
         <div className="city">
-          <input type="text" placeholder="City" {...register("city")} />
+          <input
+            type="text"
+            placeholder="City"
+            {...register("city")}
+            defaultValue={addressesChange?.City || ""}
+            autoComplete="off"
+          />
           {errors.city && (
             <span className="text-danger">{errors.city.message}</span>
           )}
         </div>
         <div className="address">
-          <input type="text" placeholder="Address" {...register("address")} />
+          <input
+            type="text"
+            placeholder="Address"
+            autoComplete="off"
+            defaultValue={addressesChange?.Address || ""}
+            {...register("address")}
+          />
           {errors.address && (
             <span className="text-danger">{errors.address.message}</span>
           )}
@@ -157,6 +189,8 @@ const NewAddresses = () => {
           <input
             type="text"
             placeholder="Address 2"
+            autoComplete="off"
+            defaultValue={addressesChange?.Address2 || ""}
             {...register("address2")}
           />
           {errors.address2 && (
@@ -167,6 +201,8 @@ const NewAddresses = () => {
           <input
             type="text"
             placeholder="ZIP/Postal Code"
+            autoComplete="off"
+            defaultValue={addressesChange?.Zip || ""}
             {...register("zip")}
           />
           {errors.zip && (
@@ -177,6 +213,7 @@ const NewAddresses = () => {
           <input
             type="text"
             placeholder="Phone number"
+            defaultValue={addressesChange?.Phone || ""}
             {...register("phone")}
           />
           {errors.phone && (
@@ -184,13 +221,24 @@ const NewAddresses = () => {
           )}
         </div>
         <div className="email">
-          <input type="text" placeholder="Email" {...register("email")} />
+          <input
+            type="text"
+            placeholder="Email"
+            {...register("email")}
+            defaultValue={addressesChange?.Email || ""}
+          />
           {errors.email && (
             <span className="text-danger">{errors.email.message}</span>
           )}
         </div>
         <div className="payment-methods-buttons">
-          <button className="discard-btn" onClick={() => reset()}>
+          <button className="discard-btn" type="button" onClick={() => {
+            if(!addressesChange) {
+              reset()
+            }
+           
+          }
+            }>
             Discard
           </button>
           <input type="submit" className="save-btn" value={"Save"} />

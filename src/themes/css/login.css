@@ -129,9 +129,10 @@
     color: #232323;
 }
 
-.login-box .login-form .join-us a {
+.login-box .login-form .join-us span {
     color: #D70B52;
     padding-left: 8px;
+    cursor: pointer;
 }
 
 .login-box .sign-up-form input {

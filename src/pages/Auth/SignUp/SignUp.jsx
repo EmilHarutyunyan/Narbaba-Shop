@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { schema_signUp } from "../schema";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   registerUser,
@@ -25,6 +25,9 @@ const SignUp = () => {
   const [repeatPassword, setRepeatPassword] = useState(false);
   const [authLogin, setAuthLogin] = useState(null)
   const navigate = useNavigate();
+  const location = useLocation();
+  const fromPage = location.state?.from?.pathname || "/";
+  console.log('fromPage sign up :', fromPage);
 
   const {
     register,
@@ -58,7 +61,7 @@ const SignUp = () => {
   }, [user]);
   useEffect(() => {
     if (userInfo) {
-      navigate("/");
+      navigate(fromPage, { replace: true });
     }
     return () => setAuthLogin(null)
     // eslint-disable-next-line react-hooks/exhaustive-deps

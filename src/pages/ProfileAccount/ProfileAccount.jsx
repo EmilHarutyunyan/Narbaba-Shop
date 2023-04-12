@@ -1,25 +1,21 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { resetUserMessage, selectUser } from "../../app/features/user/userSlice";
-import * as yup from "yup";
+import {
+  resetUserMessage,
+  selectUser,
+} from "../../app/features/user/userSlice";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { userUpdate } from "../../app/features/user/userActions";
-import { Spinner,  } from "react-bootstrap";
-import { toast, ToastContainer } from "react-toastify";
+import { Spinner } from "react-bootstrap";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-export const schema_account = yup.object().shape({
-  fullName: yup
-    .string()
-    .max(40)
-    .min(6, "First Name must be at least 6 characters.")
-    .required("Required First Name"),
-});
-
+import { schema_account } from "./schema";
+import { notify } from "../../utils/helper/helper";
 
 const ProfileAccount = () => {
   const { userInfo, loading, error, message } = useSelector(selectUser);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -31,32 +27,22 @@ const ProfileAccount = () => {
     resolver: yupResolver(schema_account),
   });
 
-  const notify = (message) =>
-    toast.success(message, {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-   
+ 
+
   const onSubmit = async (data) => {
-    const { fullName } = data;
-    await dispatch(userUpdate({ fullName }));
+    const { fullName, phone } = data;
+    await dispatch(userUpdate({ fullName, phone }));
     reset();
   };
 
   useEffect(() => {
-    if(message) {
-      notify(message)
+    if (message) {
+      notify(message);
     }
-    return () => dispatch(resetUserMessage())
-    
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[message])
+    return () => dispatch(resetUserMessage());
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [message]);
   return (
     <div className="right-side">
       <ToastContainer
@@ -90,7 +76,17 @@ const ProfileAccount = () => {
           <input type="text" defaultValue={userInfo?.email || ""} disabled />
         </div>
         <div className="phone">
-          <input type="text" placeholder="Phone" />
+          {errors.phone?.message ? (
+            <span className="text-danger">{errors.phone?.message}</span>
+          ) : (
+            <br />
+          )}
+          <input
+            type="text"
+            placeholder={"Phone"}
+            {...register("phone")}
+            defaultValue={userInfo?.phone || ""}
+          />
         </div>
         <div className="account-buttons">
           <button type="button" className="discard-btn" onClick={() => reset()}>

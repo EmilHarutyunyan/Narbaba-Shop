@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getUserDetails, registerUser, userLogin, userUpdate, userUpdatePassword } from './userActions'
+import { forgotPassword, getUserDetails, registerUser, userLogin, userUpdate, userUpdatePassword } from './userActions'
 import TokenService from "../../../services/token.service";
 // initialize userToken from local storage
 
@@ -36,8 +36,8 @@ const userSlice = createSlice({
       state.error = null;
       state.message = null;
     },
-    forgotPasswordStatus: (state, {payload}) => {
-      state.forgotPassword = payload
+    forgotPasswordStatus: (state, { payload }) => {
+      state.forgotPassword = payload;
     },
   },
   extraReducers: {
@@ -78,6 +78,7 @@ const userSlice = createSlice({
     },
     [getUserDetails.rejected]: (state, { payload }) => {
       state.loading = false;
+      state.error = payload;
     },
     [userUpdate.pending]: (state) => {
       state.loading = true;
@@ -89,6 +90,7 @@ const userSlice = createSlice({
     },
     [userUpdate.rejected]: (state, { payload }) => {
       state.loading = false;
+      state.error = payload;
     },
     [userUpdatePassword.pending]: (state) => {
       state.loading = true;
@@ -99,6 +101,17 @@ const userSlice = createSlice({
     },
     [userUpdatePassword.rejected]: (state, { payload }) => {
       state.loading = false;
+    },
+    [forgotPassword.pending]: (state) => {
+      state.loading = true;
+    },
+    [forgotPassword.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+      state.forgotPasswordStatus = payload
+    },
+    [forgotPassword.rejected]: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
     },
   },
 });

@@ -26,9 +26,10 @@ export const userLogin = createAsyncThunk(
 
       return data.Item;
     } catch (error) {
+      
       // return custom error message from API if any
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message);
+      if (error.response && error.response.data.errorMessage) {
+        return rejectWithValue(error.response.data.errorMessage);
       } else {
         return rejectWithValue(error.message);
       }
@@ -76,10 +77,10 @@ export const getUserDetails = createAsyncThunk(
       TokenService.setUserInfo(data?.item);
       return data.item
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message)
+      if (error.response && error.response.data.errorMessage) {
+        return rejectWithValue(error.response.data.errorMessage);
       } else {
-        return rejectWithValue(error.message)
+        return rejectWithValue(error.message);
       }
     }
   }
@@ -87,6 +88,7 @@ export const getUserDetails = createAsyncThunk(
 export const forgotPassword = createAsyncThunk(
   "user/forgot-password",
   async ({email}, { getState, rejectWithValue }) => {
+    
     try {
      const config = {
        headers: {
@@ -95,13 +97,13 @@ export const forgotPassword = createAsyncThunk(
      };
      const {data} = await axios.post(
        `${API_ENDPOINT}Account/RestorePassword`,
-       { email },
+      {email},
        config
      );
      return data.item
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message);
+      if (error.response && error.response.data.errorMessage) {
+        return rejectWithValue(error.response.data.errorMessage);
       } else {
         return rejectWithValue(error.message);
       }
@@ -111,9 +113,9 @@ export const forgotPassword = createAsyncThunk(
 
 export const userUpdate = createAsyncThunk(
   "user/user-update",
-  async ({ fullName }, { getState, rejectWithValue }) => {
+  async ({ fullName, phone }, { getState, rejectWithValue }) => {
     try {
-      debugger;
+      
       const { user } = getState();
       const config = {
         headers: {
@@ -123,22 +125,23 @@ export const userUpdate = createAsyncThunk(
 
       const res = await axiosInstance.put(
         `${API_ENDPOINT}Account/Update`,
-        { fullName },
+        { fullName, phone },
         config
-        );
-        
-        if(res.status === 200) {
-          const userInfo = TokenService.getUserInfo()
-          TokenService.setUserInfo({
-            ...userInfo,
-            fullName,
-          });
-          
-          return { ...userInfo, fullName };
-        }
+      );
+
+      if (res.status === 200) {
+        const userInfo = TokenService.getUserInfo();
+        TokenService.setUserInfo({
+          ...userInfo,
+          fullName,
+          phone,
+        });
+
+        return { ...userInfo, fullName,phone };
+      }
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message);
+      if (error.response && error.response.data.errorMessage) {
+        return rejectWithValue(error.response.data.errorMessage);
       } else {
         return rejectWithValue(error.message);
       }
@@ -149,7 +152,7 @@ export const userUpdatePassword = createAsyncThunk(
   "user/user-update-password",
   async ({ oldPassword, newPassword }, { getState, rejectWithValue }) => {
     try {
-      debugger;
+      
       const { user } = getState();
       const config = {
         headers: {
@@ -168,8 +171,9 @@ export const userUpdatePassword = createAsyncThunk(
       }
       
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message);
+
+      if (error.response && error.response.data.errorMessage) {
+        return rejectWithValue(error.response.data.errorMessage);
       } else {
         return rejectWithValue(error.message);
       }

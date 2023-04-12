@@ -1,46 +1,83 @@
 import axios from 'axios'
-import jwt_decode from "jwt-decode";
-import dayjs from 'dayjs'
 import { API_ENDPOINT } from '../config/config';
 import TokenService from './token.service';
 
 
-const baseURL = API_ENDPOINT
 
 
-let authTokens = TokenService.getUser() || ""
 
 const axiosInstance = axios.create({
-  baseURL,
-  headers: { Authorization: `Bearer ${authTokens.JwtToken}` },
+  baseURL: API_ENDPOINT,
+  headers: {
+    "Content-Type": "application/json",
+  },
+  
 });
 
-axiosInstance.interceptors.request.use(async req => {
-  debugger
-    if(!authTokens){
-        authTokens = TokenService.getUser() || ""
-        req.headers.Authorization = `Bearer ${authTokens.JwtToken}`;
+
+
+axiosInstance.interceptors.request.use(
+  (config) => {
+    let authTokens = TokenService.getUser() || "";
+    if (authTokens) {
+      
+      config.headers["Authorization"] = `Bearer ${authTokens.JwtToken}`;
     }
-    
-    const user = jwt_decode(authTokens.JwtToken);
-    const isExpired = dayjs.unix(user.exp).diff(dayjs()) < 1;
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
-    if(!isExpired) return req
+axiosInstance.interceptors.response.use(
+  (res) => {
+    return res;
+  },
+  async (err) => {
+    const originalConfig = err.config;
 
-    const response = await axios.post(`${baseURL}Account/RefreshToken`, {
-      refreshToken: authTokens.RefreshToken,
-    });
-    const newToken = response.data.item
-    TokenService.setUser({
-      ...authTokens,
-      JwtToken: newToken.jwtToken,
-      JwtTokenExpiresUtc: newToken.jwtTokenExpiresUtc,
-      RefreshToken: newToken.refreshToken,
-      RefreshTokenExpiresUtc: newToken.refreshTokenExpiresUtc,
-    });
-    req.headers.Authorization = `Bearer ${newToken.jwtToken}`;
-    return req
-})
+    if (
+      originalConfig.url !== `${API_ENDPOINT}Account/Authorize` &&
+      err.response
+    ) {
+      // Access Token was expired
+      if (err.response.status === 401 && !originalConfig._retry) {
+        originalConfig._retry = true;
+        let authTokens = TokenService.getUser() || "";
 
+        try {
+          const response = await axiosInstance.post(
+            `${API_ENDPOINT}Account/RefreshToken`,
+            {
+              refreshToken: authTokens.RefreshToken,
+            }
+          );
+
+          const newToken = response.data.item;
+          TokenService.setUser({
+            ...authTokens,
+            JwtToken: newToken.jwtToken,
+            JwtTokenExpiresUtc: newToken.jwtTokenExpiresUtc,
+            RefreshToken: newToken.refreshToken,
+            RefreshTokenExpiresUtc: newToken.refreshTokenExpiresUtc,
+          });
+
+          return axiosInstance(originalConfig);
+        } catch (_error) {
+          return Promise.reject(_error);
+        }
+      }
+    }
+
+    return Promise.reject(err);
+  }
+);
 
 export default axiosInstance;
+
+
+
+
+
+

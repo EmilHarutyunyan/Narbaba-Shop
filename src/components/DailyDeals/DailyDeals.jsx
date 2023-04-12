@@ -3,8 +3,6 @@ import Slider from "react-slick";
 // Styles
 import { Wrapper } from "./DailyDeals.styles";
 // Img
-import prevArrow from "../../assets/images/carousel-prev.png";
-import nextArrow from "../../assets/images/carousel-next.png";
 import imgIcon from "../../assets/images/image-item.png";
 import reteStars from "../../assets/images/rate-stars.png"
 import { Link } from "react-router-dom";

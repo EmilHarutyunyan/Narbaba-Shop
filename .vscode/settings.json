@@ -2,5 +2,6 @@
   "marquee.widgets.npm-stats.packageNames": [
     "redux-structure"
   ],
-  "editor.acceptSuggestionOnEnter": "on"
+  "editor.acceptSuggestionOnEnter": "on",
+  "liveServer.settings.port": 5501
 }

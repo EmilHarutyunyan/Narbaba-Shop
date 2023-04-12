@@ -485,18 +485,18 @@
     height: 19px;
 }
 
-.userProfile-section.payment-history .content .right-side .order-date {
+.userProfile-section .content .right-side.payment-history .order-date {
     width: 28%;
     padding: 24px;
 }
 
-.userProfile-section.payment-history .content .right-side .order-ID,
-.userProfile-section.payment-history .content .right-side .status {
+.userProfile-section .content .right-side.payment-history .order-ID,
+.userProfile-section .content .right-side.payment-history .status {
     width: 22%;
     text-align: center;
 }
 
-.userProfile-section.payment-history .content .right-side .total {
+.userProfile-section .content .right-side.payment-history .total {
     width: 7%;
 }
 
@@ -574,24 +574,24 @@
     margin: auto;
 }
 
-.notifications .right-side .notification-heading {
+ .right-side.notifications .notification-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.notifications .right-side .notification-heading .mark-all-read {
+ .right-side.notifications .notification-heading .mark-all-read {
     font-size: 16px;
     line-height: 24px;
     text-decoration-line: underline;
     color: #D70B52;
 }
 
-.notifications .right-side .notifications-list {
+ .right-side.notifications .notifications-list {
     width: 100%;
 }
 
-.notifications .right-side .notifications-list .notifications-item {
+ .right-side.notifications .notifications-list .notifications-item {
     width: 100%;
     height: auto;
     display: flex;
@@ -602,12 +602,12 @@
     line-height: 24px;
 }
 
-.notifications .right-side .notifications-list .notifications-item.unread {
+.right-side.notifications .notifications-list .notifications-item.unread {
     background: #FDF3F6;
     border-bottom: 1px solid #FFFFFF;
 }
 
-.notifications .right-side .notifications-list .notifications-item .notification-description {
+ .right-side.notifications .notifications-list .notifications-item .notification-description {
     max-width: 796px;
 }
 

@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// Styles
-import { Wrapper } from "./CopyRight.styles";
 import paypalImg from "../../assets/images/Paypal.png";
 import visaImg from "../../assets/images/Visa.png";
 import masterImg from "../../assets/images/Master.png";

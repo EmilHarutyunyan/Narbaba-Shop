@@ -4,8 +4,6 @@ import {Wrapper} from "./ShopByCategory.styles"
 
 // Img
 import bestSellersImg from "../../assets/images/slider1.png";
-import Slider from 'react-slick';
-import { sliderSetting } from './sliderSetting';
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const ShopByCategory = () => {
@@ -14,7 +12,7 @@ const ShopByCategory = () => {
       <div className="fifth-section-content">
         <div className="title">Shop by category</div>
         <Swiper
-          slidesPerView={4}
+          slidesPerView={1.5}
           spaceBetween={30}
           centeredSlides={true}
           pagination={{

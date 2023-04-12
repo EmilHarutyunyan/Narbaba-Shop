@@ -10,4 +10,6 @@ export const PROFILE_MY_ORDERS = '/profile/my-orders'
 export const PROFILE_ACCOUNT = '/profile/account'
 export const PROFILE_PASSWORD = '/profile/password'
 export const PROFILE_ADDRESSES = '/profile/addresses'
-export const PROFILE_NEW_ADDRESSES = '/profile/addresses/new-addresses'
+export const PROFILE_PAYMENT_METHODS = "/profile/payment-methods"
+export const PROFILE_PAYMENT_HISTORY = "/profile/payment-history";
+export const PROFILE_NOTIFICATIONS = "/profile/notifications";

@@ -1,11 +1,13 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import TokenService from "../services/token.service";
 
-const ProtectRouter = ({ access, redirect, children }) => {
-console.log('access :', access);
+const ProtectRouter = ({ access, redirect='/login', children }) => {
   const location = useLocation();
-  if (access?.length === 0 || access === undefined || access === false || access === null) {
-    return <Navigate to={redirect} state={{ from: location.pathname }} />;
+  
+  const user = TokenService.getUser()
+  if (!user) {
+    return <Navigate to={redirect} state={{ from: location }} />;
   }
   return children;
 };

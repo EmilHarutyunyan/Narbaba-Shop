@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
   import 'swiper/css';
   import 'swiper/css/navigation';
   import 'swiper/css/pagination';
+import { ScrollToTop } from './router/scroll-to-up';
 // import setupInterceptors from "./services/setupInterceptors";
 
 const container = document.getElementById('root');
@@ -20,13 +21,14 @@ const root = createRoot(container);
 
 root.render(
   // <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        {/* <FontStyle /> */}
-        {/* <GlobalStyle /> */}
-        <App />
-      </BrowserRouter>
-    </Provider>
+  <Provider store={store}>
+    <BrowserRouter>
+      <ScrollToTop />
+      {/* <FontStyle /> */}
+      {/* <GlobalStyle /> */}
+      <App />
+    </BrowserRouter>
+  </Provider>
   // </React.StrictMode>
 );
 

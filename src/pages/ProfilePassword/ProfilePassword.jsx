@@ -7,9 +7,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema_password } from "./schema";
 import { userUpdatePassword } from "../../app/features/user/userActions";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { resetUserMessage, selectUser } from "../../app/features/user/userSlice";
 import { Spinner } from "react-bootstrap";
+import { notify } from "../../utils/helper/helper";
 
 const ProfilePassword = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -33,17 +34,7 @@ const ProfilePassword = () => {
     await dispatch(userUpdatePassword({ oldPassword, newPassword }));
     reset();
   };
-   const notify = (message) =>
-     toast.success(message, {
-       position: "top-center",
-       autoClose: 3000,
-       hideProgressBar: false,
-       closeOnClick: true,
-       pauseOnHover: true,
-       draggable: true,
-       progress: undefined,
-       theme: "light",
-     });
+
 
   useEffect(() => {
     if (message) {

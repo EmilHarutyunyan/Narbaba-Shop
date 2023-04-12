@@ -7,7 +7,9 @@ import ProfileAccount from "./ProfileAccount/ProfileAccount";
 import ProfilePassword from "./ProfilePassword/ProfilePassword";
 import ProfileMyOrders from "./ProfileMyOrders/ProfileMyOrders";
 import ProfileAddresses from "./ProfileAddresses/ProfileAddresses";
-import ProfileNewAddresses from "./ProfileNewAddresses/ProfileNewAddresses";
+import ProfilePaymentMethods from "./ProfilePaymentMethods/ProfilePaymentMethods";
+import ProfilePaymentHistory from "./ProfilePaymentHistory/ProfilePaymentHistory";
+import ProfileNotifications from "./ProfileNotifications/ProfileNotifications";
 
 export {
   Home,
@@ -19,5 +21,7 @@ export {
   ProfilePassword,
   ProfileMyOrders,
   ProfileAddresses,
-  ProfileNewAddresses,
+  ProfilePaymentMethods,
+  ProfilePaymentHistory,
+  ProfileNotifications,
 };

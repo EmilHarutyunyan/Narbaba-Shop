@@ -1,7 +1,3 @@
-import prevArrow from "../../assets/images/carousel-prev.png";
-import nextArrow from "../../assets/images/carousel-next.png";
-import { SampleNextArrow, SamplePrevArrow } from "../SampleArrow/SampleArrow";
-
 export const sliderSetting = {
   className: "center",
   dots: false,
