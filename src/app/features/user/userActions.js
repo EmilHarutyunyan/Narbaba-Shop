@@ -180,3 +180,31 @@ export const userUpdatePassword = createAsyncThunk(
     }
   }
 );
+
+
+export const changePasswordWithKey = createAsyncThunk(
+  "user/user-update-password",
+  async ({ temporaryKey, newPassword }, { getState, rejectWithValue }) => {
+    debugger
+    try {
+
+
+      const res = await axios.post(
+        `${API_ENDPOINT}Account/ChangePasswordWithTemporaryKey`,
+        { temporaryKey, newPassword },
+        
+        );
+        
+      console.log('res :', res);
+      if (res.status === 200) {
+        return "Change Password";
+      }
+    } catch (error) {
+      if (error.response && error.response.data.errorMessage) {
+        return rejectWithValue(error.response.data.errorMessage);
+      } else {
+        return rejectWithValue(error.message);
+      }
+    }
+  }
+);

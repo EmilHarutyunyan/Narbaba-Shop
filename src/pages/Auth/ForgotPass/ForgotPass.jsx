@@ -97,63 +97,7 @@ const ForgotPass = () => {
           <h2 className="title forgot-password-title text-center">
             Check Your Mail
           </h2>
-          {/* <div className="login-form">
-            <h2 className="title forgot-password-title">Reset password</h2>
-            <span className="get-link">Type your new password here.</span>
-            <form action onSubmit={handleSubmitReset(onSubmitReset)}>
-              <div className="password-input">
-                <span
-                  className="show-reset-password"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? (
-                    <img
-                      src={eyeShow}
-                      className="show-password-eye"
-                      alt="show password eye"
-                    />
-                  ) : (
-                    <img
-                      src={eyeHide}
-                      className="hide-password-eye"
-                      alt="hide password eye"
-                    />
-                  )}
-                </span>
-                <input
-                  id="newPassword"
-                  {...registerReset("password")}
-                  placeholder="New password"
-                />
-              </div>
-              <div className="password-input">
-                <span
-                  className="show-repeat-password"
-                  onClick={() => setConfirmPassword(!confirmPassword)}
-                >
-                  {confirmPassword ? (
-                    <img
-                      src={eyeShow}
-                      className="show-password-eye"
-                      alt="show password eye"
-                    />
-                  ) : (
-                    <img
-                      src={eyeHide}
-                      className="hide-password-eye"
-                      alt="hide password eye"
-                    />
-                  )}
-                </span>
-                <input
-                  id="repeatPassword"
-                  {...registerReset("confirmPwd")}
-                  placeholder="Repeat new password"
-                />
-              </div>
-              <button className="signIn-btn">Send link to email</button>
-            </form>
-          </div> */}
+         
         </div>
       )}
     </div>

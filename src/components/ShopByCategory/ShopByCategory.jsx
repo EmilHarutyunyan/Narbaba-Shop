@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const ShopByCategory = () => {
   return (
-    <Wrapper className="fifth-section">
+    <div className="fifth-section">
       <div className="fifth-section-content">
         <div className="title">Shop by category</div>
         <Swiper
@@ -34,7 +34,7 @@ const ShopByCategory = () => {
         </Swiper>
         
       </div>
-    </Wrapper>
+    </div>
   );
 }
 

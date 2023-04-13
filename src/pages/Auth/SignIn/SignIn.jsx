@@ -110,7 +110,7 @@ const SignIn = () => {
                 type={showPassword ? "text" : "password"}
               />
             </div>
-            <Link to="/forgot-password" className="forget-password">
+            <Link to="/forgot" className="forget-password">
               Forgot password?
             </Link>
             <button className="signIn-btn hover-overlay">

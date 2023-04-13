@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { forgotPassword, getUserDetails, registerUser, userLogin, userUpdate, userUpdatePassword } from './userActions'
+import { changePasswordWithKey, forgotPassword, getUserDetails, registerUser, userLogin, userUpdate, userUpdatePassword } from './userActions'
 import TokenService from "../../../services/token.service";
 // initialize userToken from local storage
 
@@ -107,9 +107,20 @@ const userSlice = createSlice({
     },
     [forgotPassword.fulfilled]: (state, { payload }) => {
       state.loading = false;
-      state.forgotPasswordStatus = payload
+      state.forgotPasswordStatus = payload;
     },
     [forgotPassword.rejected]: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    },
+    [changePasswordWithKey.pending]: (state) => {
+      state.loading = true;
+    },
+    [changePasswordWithKey.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+      state.message = payload;
+    },
+    [changePasswordWithKey.rejected]: (state, { payload }) => {
       state.loading = false;
       state.error = payload;
     },

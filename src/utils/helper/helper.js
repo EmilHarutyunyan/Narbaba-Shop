@@ -25,5 +25,10 @@ const cardType = (cardNumber) => {
   }
   return {cardType:card[0].type.toLocaleLowerCase(),img:null};
 }
+
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
    
-export { notify, cardType };
+export { notify, cardType, capitalizeFirstLetter };

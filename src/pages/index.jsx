@@ -1,4 +1,5 @@
 import Home from "./Home";
+import Products from "./Products"
 import Login from "./Auth/SignIn";
 import Register from "./Auth/SignUp";
 import ErrorPage from "./ErrorPage/ErrorPage";

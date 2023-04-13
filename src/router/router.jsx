@@ -6,8 +6,10 @@ import TokenService from "../services/token.service";
 import {
   ERROR,
   FORGOT_PASSWORD,
+  FORGOT_PASSWORD_ID,
   HOME,
   LOGIN,
+  PRODUCTS_CATEGORY,
   PROFILE,
   PROFILE_ACCOUNT,
   PROFILE_ADDRESSES,
@@ -42,6 +44,8 @@ import dayjs from "dayjs";
 import { useDispatch } from "react-redux";
 import { logout } from "../app/features/user/userSlice";
 import ProtectRouter from "./ProtectedRouter";
+import ForgotPassId from "../pages/Auth/ForgotPassId/ForgotPassId";
+import Products from "../pages/Products";
 
 
 
@@ -62,6 +66,7 @@ const Router = () => {
     <Routes>
       <Route path={HOME} element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path={PRODUCTS_CATEGORY} element={<Products />} />
         <Route
           path={PROFILE}
           element={
@@ -102,6 +107,7 @@ const Router = () => {
         <>
           <Route path={LOGIN} element={<Login />} />
           <Route path={FORGOT_PASSWORD} element={<ForgotPass />} />
+          <Route path={FORGOT_PASSWORD_ID} element={<ForgotPassId />} />
         </>
       )}
       {user ? (

@@ -3,22 +3,22 @@ import { v4 as uuidv4 } from "uuid";
 export const shopList = [
   {
     id: uuidv4(),
-    link: "/best-sellers",
+    link: "/products/best-sellers",
     text: "Best Sellers",
   },
   {
     id: uuidv4(),
-    link: "/deals-store",
+    link: "/products/deals-store",
     text: "Deals Store",
   },
   {
     id: uuidv4(),
-    link: "/electronics",
+    link: "/products/electronics",
     text: "Electronics",
   },
   {
     id: uuidv4(),
-    link: "/gift-ideas",
+    link: "/products/gift-ideas",
     text: "Gift Ideas",
   },
   {
@@ -28,7 +28,7 @@ export const shopList = [
   },
   {
     id: uuidv4(),
-    link: "/toys-games",
+    link: "/products/toys-games",
     text: "Toys & Games",
   },
 ];

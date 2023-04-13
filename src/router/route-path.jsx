@@ -2,7 +2,10 @@ export const HOME = '/'
 export const ABOUT_US = '/about'
 export const LOGIN = '/login'
 export const REGISTER = '/register'
-export const FORGOT_PASSWORD = '/forgot-password'
+export const FORGOT_PASSWORD = '/forgot'
+export const FORGOT_PASSWORD_ID = "/forgot/:temporaryKey";
+// export const PRODUCTS = "/products"
+export const PRODUCTS_CATEGORY = "/products/:category"
 export const ERROR = "*"
 // Profile
 export const PROFILE = '/profile'
