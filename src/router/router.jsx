@@ -13,11 +13,13 @@ import {
   PROFILE,
   PROFILE_ACCOUNT,
   PROFILE_ADDRESSES,
+  PROFILE_ADDRESSES_ID,
   PROFILE_MY_ORDERS,
   PROFILE_NOTIFICATIONS,
   PROFILE_PASSWORD,
   PROFILE_PAYMENT_HISTORY,
   PROFILE_PAYMENT_METHODS,
+  PROFILE_PAYMENT_METHODS_ID,
   REGISTER,
 } from "./route-path";
 
@@ -84,11 +86,11 @@ const Router = () => {
             element={<ProfilePaymentMethods />}
           />
           <Route
-            path={PROFILE_ADDRESSES + "/:id"}
+            path={PROFILE_ADDRESSES_ID}
             element={<ProfileAddresses />}
           />
           <Route
-            path={PROFILE_PAYMENT_METHODS + "/:id"}
+            path={PROFILE_PAYMENT_METHODS_ID}
             element={<ProfilePaymentMethods />}
           />
           <Route
@@ -100,6 +102,7 @@ const Router = () => {
             element={<ProfileNotifications />}
           />
         </Route>
+        <Route path={ERROR} element={<ErrorPage />} />
       </Route>
       {user ? (
         <Route path={LOGIN} element={<Navigate to={pathName} />} />
@@ -115,7 +118,6 @@ const Router = () => {
       ) : (
         <Route path={REGISTER} element={<Register />} />
       )}
-      <Route path={ERROR} element={<ErrorPage />} />
     </Routes>
   );
 };

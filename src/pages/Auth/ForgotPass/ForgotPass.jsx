@@ -5,13 +5,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 // Img
 import logoImg from "../../../assets/images/narbaba-logo.png";
-// import eyeShow from "../../../assets/images/mdi_eye-outline.png";
-// import eyeHide from "../../../assets/images/mdi_eye-off-outline.png";
+import checkMail from "../../../assets/images/checkMail.png"
 import { schema_forgot } from "../schema";
 import { useDispatch, useSelector } from "react-redux";
 import { resetUserMessage, selectUser } from "../../../app/features/user/userSlice";
 import { forgotPassword } from "../../../app/features/user/userActions";
 import { Spinner } from "react-bootstrap";
+import styled from "styled-components";
 
 const ForgotPass = () => {
   // const [sendForgot, setSendForgot] = useState(false);
@@ -94,14 +94,47 @@ const ForgotPass = () => {
               <img src={logoImg} alt="logo" />
             </Link>
           </div>
-          <h2 className="title forgot-password-title text-center">
-            Check Your Mail
-          </h2>
-         
+          <CheckMailWrap>
+            <img src={checkMail} alt={"Check Mail"} />
+            <hr className="border-big" />
+            <h2 className="title forgot-password-title text-center">
+              Check Your Mail
+            </h2>
+            <hr className="border-lit" />
+          </CheckMailWrap>
         </div>
       )}
     </div>
   );
 };
+const CheckMailWrap = styled.div`
+  text-align: center;
+  img {
+    max-width: 100px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .border-big {
+    border: 3px solid #d0054e;
+    opacity: 1;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 28px;
+  }
+  .border-lit {
+    border: 1px solid #d0054e;
+    opacity: 1;
+    max-width: 120px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+`;
+
 
 export default ForgotPass;
