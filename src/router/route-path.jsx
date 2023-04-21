@@ -6,6 +6,8 @@ export const FORGOT_PASSWORD = '/forgot'
 export const FORGOT_PASSWORD_ID = "/forgot/:temporaryKey";
 // export const PRODUCTS = "/products"
 export const PRODUCTS_CATEGORY = "/products/:category"
+export const FAVORITES = '/favorites'
+export const CART = "/cart"
 export const ERROR = "*"
 // Profile
 export const PROFILE = '/profile'

@@ -4,7 +4,9 @@ import TokenService from "../services/token.service";
 
 // Path
 import {
+  CART,
   ERROR,
+  FAVORITES,
   FORGOT_PASSWORD,
   FORGOT_PASSWORD_ID,
   HOME,
@@ -37,6 +39,8 @@ import {
   ProfilePaymentMethods,
   ProfilePaymentHistory,
   ProfileNotifications,
+  Favorites,
+  Cart,
 
 } from "../pages";
 
@@ -56,7 +60,6 @@ const Router = () => {
   const location = useLocation();
   const pathName = location.state?.from || "/";
   const dispatch = useDispatch()
-
   if (user) {
     if (dayjs.unix(user.RefreshTokenExpiresUtc).diff(dayjs()) < 1) {
       dispatch(logout());
@@ -69,6 +72,8 @@ const Router = () => {
       <Route path={HOME} element={<Layout />}>
         <Route index element={<Home />} />
         <Route path={PRODUCTS_CATEGORY} element={<Products />} />
+        <Route path={FAVORITES} element={<Favorites />} />
+        <Route path={CART} element={<Cart />}/>
         <Route
           path={PROFILE}
           element={

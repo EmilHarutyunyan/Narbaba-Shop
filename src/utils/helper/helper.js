@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import creditCardType from "credit-card-type";
-import { masterIcon, visaIcon } from "../constants/constants";
+import { masterIcon, visaIcon } from "../constant/constants";
 const notify = (message) =>
    toast.success(message, {
      position: "top-center",

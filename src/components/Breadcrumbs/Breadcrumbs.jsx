@@ -4,7 +4,6 @@ import {NavWrapper} from "./Breadcrumbs.styles"
 import { Link, useLocation } from 'react-router-dom';
 const Breadcrumbs = () => {
   const location = useLocation();
-
   return (
     <NavWrapper>
       <Link
@@ -15,8 +14,9 @@ const Breadcrumbs = () => {
             : "breadcrumb-not-active"
         }
       >
-        Home 
-      /</Link>
+        Home /
+      </Link>
+      
     </NavWrapper>
   );
 };

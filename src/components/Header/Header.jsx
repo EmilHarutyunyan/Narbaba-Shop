@@ -6,12 +6,12 @@ import narLogo from "../../assets/images/narbaba-logo.png";
 import englishLn from "../../assets/images/english.png";
 import turkishLn from "../../assets/images/turkish.png";
 import germanLn from "../../assets/images/german.png";
-import cartIcon from "../../assets/images/cart-icon.png";
 import profileIcon from "../../assets/images/profile-icon.png";
-import favoriteIcon from "../../assets/images/favorite-icon.png";
 import { categorySearch, navLinks } from "./dataLinks";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../app/features/user/userSlice";
+import FavoriteAction from "../Action/FavoriteAction/FavoriteAction";
+import CartAction from "../Action/CartAction/CartAction";
 const Header = () => {
   const {userInfo} = useSelector(selectUser)
   
@@ -101,13 +101,7 @@ const Header = () => {
                   </div>
                   <div className="header-right-side">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                      <li className="nav-item active">
-                        <Link className="nav-link" to="cart">
-                          <img src={cartIcon} alt="Cart" />
-                          Cart
-                          <span className="cart-items">(0)</span>
-                        </Link>
-                      </li>
+                      <CartAction />
                       <li className="nav-item">
                         <Link
                           className="nav-link"
@@ -118,11 +112,7 @@ const Header = () => {
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link" to="favorites">
-                          <img src={favoriteIcon} alt="Favorites" />
-                          Favorites
-                          <span className="favorites-items">(0)</span>
-                        </Link>
+                        <FavoriteAction />
                       </li>
 
                       <Dropdown className="dropdown language-dropdown">
